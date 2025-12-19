@@ -1,0 +1,8 @@
+export const admin = (...roles)=>{
+    return (req,res,next)=>{
+    if(!roles.includes(req.users.role)){
+    throw new Error('its not an admin')
+    }
+    next()
+}
+}

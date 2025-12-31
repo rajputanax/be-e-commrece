@@ -7,17 +7,13 @@ import { genToken }from '../utiles/auth-token.js'
 //...............................................................
 
 
-
-
-
-
 export const registerUser = async (req, res) => {
     try {
        
         console.log(req.body , 'role----------')
           const isFirstUser = await user.countDocuments() === 0;
        let roleFromClient =   req.body.role ;
-       const availableRoles = [ 'buyer' , ' seller'];
+       const availableRoles = [ 'buyer' , 'seller'];
        let finalRole ;
        if(isFirstUser){
         finalRole = 'admin'
@@ -54,8 +50,6 @@ export const registerUser = async (req, res) => {
     }
 
 }
-
-
 
 
 
@@ -116,3 +110,9 @@ export const logoutUser = (req, res) => {
 
     return res.status(200).json({ message: "User logged out successfully" });
 };
+
+//........................................................
+//........................................................
+// END //.................................................
+//........................................................
+//........................................................

@@ -41,18 +41,10 @@ export const dataValidation = checkInputData(
     ]
 );
 
-// export const ownerShip = checkInputData(
-//     param('id').custom(async(val,{req})=>{
-//         const isValidId = mongoose.Types.ObjectId.isValid(val);
-//         if (!isValidId) { 
-//             throw new Error('bad request');
-//         }
-//         console.log(isValidId , 'check id ')
-//         const productData = await Product.findById(val)
-//         const isAdmin = req.users?.role === "admin"
-//         const isOwner = req.users?.userId === productData.createdBy.toString()
-//         if(!isAdmin && !isOwner){
-//             throw new Error('you are not eligible to make this request')
-//         }
-//     })
-// );
+
+
+//........................................................
+//........................................................
+// END //.................................................
+//........................................................
+//........................................................

@@ -1,14 +1,11 @@
-// export const admin = (...roles)=>{
-//     return (req,res,next)=>{
-//     if(!roles.includes(req.users.role)){
-//     res.status(200).json({msg:'hody admin'})
-//     }
-//     else{
-//         res.status(400).json({msg:'not an admin'})
-//     }
-//     next()
-// }
-// }
+export const admin = (...roles)=>{
+    return (req,res,next)=>{
+    if(!roles.includes(req.users.role)){
+    throw new Error('its not an admin')
+    }
+    next()
+}
+}
 
 
 

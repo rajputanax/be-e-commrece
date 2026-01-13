@@ -26,11 +26,22 @@ const app = express();
 // ============================ [ Middlewares ] ===================================
 // ================================================================================
 
-// Enable Cross-Origin Resource Sharing
-app.use(cors());
+
 
 // Parse JSON bodies
 app.use(express.json());
+
+// Enable Cross-Origin Resource Sharing
+// Replace app.use(cors()) with this:
+app.use(cors({
+  origin: [
+    "http://localhost:5173", // For local development
+    "https://fe-e-com-8lz6.vercel.app" // Your EXACT Vercel URL
+  ],
+  credentials: true, // Crucial because you are using cookie-parser
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
 
 // Parse URL-encoded form data
 app.use(express.urlencoded({ extended: true }));

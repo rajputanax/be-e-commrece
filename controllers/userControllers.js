@@ -80,7 +80,8 @@ export const loginUser = async (req, res) => {
             'tokken', tokken, {
                 httpOnly:true ,
                 expires:new Date(Date.now() + oneDay) , 
-                secure : true
+                secure : true,
+                sameSite: 'none'
 
         })
 

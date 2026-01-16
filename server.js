@@ -36,7 +36,7 @@ app.use(express.json());
 app.use(cors({
   origin: [
     "http://localhost:5173", // For local development
-    "https://fe-e-com-8lz6.vercel.app/" // Your EXACT Vercel URL
+    "https://fe-e-com-8lz6.vercel.app" // Your EXACT Vercel URL
   ],
   credentials: true, // Crucial because you are using cookie-parser
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],

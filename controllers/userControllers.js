@@ -75,15 +75,14 @@ export const loginUser = async (req, res) => {
        //....................................................
         // =========== [ Set Token in Coockies ] ============
         //.....................................................
-        const oneDay = 1000 * 60 * 60 * 24
-        res.cookie(
-            'tokken', tokken, {
-                httpOnly:true ,
-                expires:new Date(Date.now() + oneDay) , 
-                secure : true,
-                sameSite: 'none'
-
-        })
+  
+       res.cookie('tokken', tokken, {
+    httpOnly: true,
+    secure: true,
+    sameSite: 'none',
+    maxAge: 24*60*60*1000, // 1 day
+    path: '/'
+});
 
         // .................................................
         const verifyPwd = await bcrypt.compare(password, users.password)

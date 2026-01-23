@@ -34,7 +34,8 @@ app.use(cors({
   ],
   credentials: true, // Crucial because you are using cookie-parser
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"]
+   allowedHeaders: ["Content-Type", "Authorization"],
+  exposedHeaders: ["set-cookie"]
 }));
 
 // ================================================================================

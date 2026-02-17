@@ -75,7 +75,7 @@ export const loginUser = async (req, res) => {
        //....................................................
         // =========== [ Set Token in Coockies ] ============
         //.....................................................
-  app.set('trust proxy', 1);
+//   app.set('trust proxy', 1);
        res.cookie('tokken', tokken, {
     httpOnly: true,
     secure: true,

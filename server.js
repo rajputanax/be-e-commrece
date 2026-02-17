@@ -15,6 +15,7 @@ import routerRole from "./routes/roleBaseRoute.js";
 import productRoutes from "./routes/productRoutes.js";
 import adminRoutes from "./routes/adminRoutes.js";
 import stripeRouter from "./routes/stripe.js";
+import orderRoutes from "./routes/orderRoutes.js";
 
 
 // ============================ [ Config ] ========================================
@@ -68,10 +69,11 @@ app.use("/api/user", userRoutes);        // User routes
 app.get("/api/check-auth", authMiddleware, (req, res) => {
   res.status(200).json({ msg: "Authenticated", user: req.user });
 });
-app.use('/api' , stripeRouter)
+app.use('/api', stripeRouter);
 app.use("/api/products",authMiddleware, productRoutes); // Product routes
-app.use('/api/current', authMiddleware,routerRole)      // current user/ & stuff
+app.use('/api/current', authMiddleware,routerRole);      // current user/ & stuff
 app.use("/api/admin",authMiddleware, adminRoutes);      // Admin routes
+app.use("/api/orders", authMiddleware, orderRoutes);    // Order routes
   
 // ================================================================================
 // ========================== [ DB Connection ] ===================================

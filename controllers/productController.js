@@ -8,11 +8,14 @@ export const getAllProducts = async (req, res) => {
         const limit = Number(req.query.limit) || 20;
         const skip = (page - 1) * limit;
 
-        const products = await Product.find(
-            req.users.role === "admin" 
-    ? {} 
-    : { createdBy: req.users.userId }
-        ).skip(skip).limit(limit);
+
+// const products = await Product.find(
+//             req.users.role === "admin" 
+//     ? {} 
+//     : { createdBy: req.users.userId }
+//         )
+ const products = await Product.find({})
+        .skip(skip).limit(limit);
 
         console.log(total, 'total')
         res.status(200).json({
